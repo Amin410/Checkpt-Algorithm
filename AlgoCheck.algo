@@ -1,0 +1,37 @@
+ALGORITHM ReadSentence.algo
+
+    /* This algorithm reads a sentence and calculates its length, number of words, and number of vowels. */
+    
+    BEGIN
+        /* Initialize variables */
+        sentence ← ""
+        length ← 0
+        word_count ← 0
+        vowel_count ← 0
+        vowels ← {'a', 'e', 'i', 'o', 'u'}
+        
+        /* Read input sentence */
+        READ sentence
+        
+        /* Process sentence character by character */
+        FOR i ← 1 TO LENGTH(sentence) DO
+            length ← length + 1
+            c ← SUBSTRING(sentence, i, 1)
+            IF c = ' ' THEN
+                word_count ← word_count + 1
+            END IF
+            IF c IN vowels THEN
+                vowel_count ← vowel_count + 1
+            END IF
+        END FOR
+        
+        /* Increment word_count to account for last word */
+        word_count ← word_count + 1
+        
+        /* Output results */
+        OUTPUT "Length of the sentence: " + length
+        OUTPUT "Number of words in the sentence: " + word_count
+        OUTPUT "Number of vowels in the sentence: " + vowel_count
+    END
+
+END ALGORITHM
